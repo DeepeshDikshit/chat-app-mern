@@ -79,7 +79,7 @@ const Home = () => {
         }
       });
 
-    const tempSocket = io("http://localhost:3000", {
+    const tempSocket = io("https://chat-app-mern-7s5d.onrender.com", {
       withCredentials: true // this ensures cookies are sent with the socket connection
     });
 
