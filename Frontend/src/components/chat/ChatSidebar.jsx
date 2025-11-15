@@ -28,7 +28,7 @@ const ChatSidebar = ({ chats, activeChatId, onSelectChat, onNewChat, open }) => 
     e.stopPropagation();
     if (window.confirm('Are you sure you want to delete this chat?')) {
       try {
-        await api.delete(`https://chat-app-mern-7s5d.onrender.com/api/chat/${chatId}`, { withCredentials: true });
+        await api.delete(`http://localhost:3000/api/chat/${chatId}`, { withCredentials: true });
         window.location.reload(); // Temporary solution - should use state management instead
       } catch (err) {
         console.error('Failed to delete chat:', err);
