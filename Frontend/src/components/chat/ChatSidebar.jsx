@@ -15,7 +15,7 @@ const ChatSidebar = ({ chats, activeChatId, onSelectChat, onNewChat, open }) => 
   const handleSaveEdit = async (e, chatId) => {
     e.stopPropagation();
     try {
-      await api.put(`https://chat-app-mern-7s5d.onrender.com/api/chat/${chatId}`, { title: editTitle }, { withCredentials: true });
+      await api.put(`http://localhost:3000/api/chat/${chatId}`, { title: editTitle }, { withCredentials: true });
       setEditingChatId(null);
       window.location.reload(); // Temporary solution - should use state management instead
     } catch (err) {
