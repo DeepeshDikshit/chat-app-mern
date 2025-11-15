@@ -46,7 +46,7 @@ const Home = () => {
     if (title) title = title.trim();
     if (!title) return
 
-    const response = await api.post('/api/chat', {
+    const response = await api.post('https://chat-app-mern-7s5d.onrender.com/api/chat', {
       title
     }, {
       withCredentials: true
@@ -67,7 +67,7 @@ const Home = () => {
       return;
     }
 
-    api.get('/api/chat')
+    api.get('https://chat-app-mern-7s5d.onrender.com/api/chat')
       .then(response => {
         dispatch(setChats(response.data.chats.reverse()));
       })
@@ -138,7 +138,7 @@ const Home = () => {
 
   const getMessages = async (chatId) => {
 
-  const response = await  api.get(`/api/chat/messages/${chatId}`)
+  const response = await  api.get(`https://chat-app-mern-7s5d.onrender.com/api/chat/messages/${chatId}`)
 
    console.log("Fetched messages:", response.data.messages);
 

@@ -17,7 +17,7 @@ const Login = () => {
         setSubmitting(true);
 
         try {
-            const res = await api.post('/api/auth/login', {
+            const res = await api.post('https://chat-app-mern-7s5d.onrender.com/api/auth/login', {
                 email: form.email,
                 password: form.password
             }, {

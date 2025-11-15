@@ -15,7 +15,7 @@ const ChatSidebar = ({ chats, activeChatId, onSelectChat, onNewChat, open }) => 
   const handleSaveEdit = async (e, chatId) => {
     e.stopPropagation();
     try {
-      await api.put(`/api/chat/${chatId}`, { title: editTitle }, { withCredentials: true });
+      await api.put(`https://chat-app-mern-7s5d.onrender.com/api/chat/${chatId}`, { title: editTitle }, { withCredentials: true });
       setEditingChatId(null);
       window.location.reload(); // Temporary solution - should use state management instead
     } catch (err) {
@@ -28,7 +28,7 @@ const ChatSidebar = ({ chats, activeChatId, onSelectChat, onNewChat, open }) => 
     e.stopPropagation();
     if (window.confirm('Are you sure you want to delete this chat?')) {
       try {
-        await api.delete(`/api/chat/${chatId}`, { withCredentials: true });
+        await api.delete(`https://chat-app-mern-7s5d.onrender.com/api/chat/${chatId}`, { withCredentials: true });
         window.location.reload(); // Temporary solution - should use state management instead
       } catch (err) {
         console.error('Failed to delete chat:', err);
