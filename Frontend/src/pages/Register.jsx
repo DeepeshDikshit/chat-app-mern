@@ -18,7 +18,7 @@ const Register = () => {
         setSubmitting(true);
 
         try {
-            await api.post('https://chat-app-mern-7s5d.onrender.com/api/auth/register', {
+            await api.post('http://localhost:3000/api/auth/register', {
                 email: form.email,
                 fullName: {
                     firstName: form.firstname,

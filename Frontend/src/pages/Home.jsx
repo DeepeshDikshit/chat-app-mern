@@ -46,7 +46,7 @@ const Home = () => {
     if (title) title = title.trim();
     if (!title) return
 
-    const response = await api.post('https://chat-app-mern-7s5d.onrender.com/api/chat', {
+    const response = await api.post('http://localhost:3000/api/chat', {
       title
     }, {
       withCredentials: true
@@ -67,7 +67,7 @@ const Home = () => {
       return;
     }
 
-    api.get('https://chat-app-mern-7s5d.onrender.com/api/chat')
+    api.get('http://localhost:3000/api/chat')
       .then(response => {
         dispatch(setChats(response.data.chats.reverse()));
       })
@@ -79,7 +79,7 @@ const Home = () => {
         }
       });
 
-    const tempSocket = io("https://chat-app-mern-7s5d.onrender.com", {
+    const tempSocket = io("http://localhost:3000", {
       withCredentials: true // this ensures cookies are sent with the socket connection
     });
 
@@ -138,7 +138,7 @@ const Home = () => {
 
   const getMessages = async (chatId) => {
 
-  const response = await  api.get(`https://chat-app-mern-7s5d.onrender.com/api/chat/messages/${chatId}`)
+  const response = await  api.get(`http://localhost:3000/api/chat/messages/${chatId}`)
 
    console.log("Fetched messages:", response.data.messages);
 
