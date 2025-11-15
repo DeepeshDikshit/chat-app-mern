@@ -15,20 +15,20 @@ const app = express();
 
 /* using middlewares */
 app.use(cors({
-    origin: [
-        'http://localhost:5173',
-        process.env.CLIENT_URL   // your Render frontend
-    ],
+    origin: 'http://localhost:5173', 
     credentials: true
 }));
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, '../public')))
 
 
 /* Using Routes */
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
 
-
+app.get("*name", (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+});
 module.exports = app;
