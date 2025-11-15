@@ -23,8 +23,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
 /* Using Routes */
 app.use('/api/auth', authRoutes);
 app.use('/api/chat', chatRoutes);
